@@ -1,8 +1,13 @@
 import clsx from "clsx";
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
-export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+}
 
-export const Button = ({ className, ...props }: IButtonProps) => {
-  return <button className={clsx("", className)} {...props} />;
-};
+export const Button = ({ className, ...props }: ButtonProps) => (
+  <button
+    className={clsx("rounded-full w-96 hover:brightness-75", className)}
+    {...props}
+  />
+);
