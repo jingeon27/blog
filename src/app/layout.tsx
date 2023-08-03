@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { pretendard } from "@/assets";
+import { pretendard } from "@/assets/font";
 
 export const metadata: Metadata = {
   title: "blog",
