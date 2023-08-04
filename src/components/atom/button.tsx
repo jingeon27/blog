@@ -5,7 +5,7 @@ export const Button = (props: PropsWithChildren<ComponentProps<"button">>) => (
   <button
     {...props}
     className={clsx(
-      "rounded-full w-96 hover:brightness-75 font-sans",
+      "rounded-full w-96 hover:brightness-75 font-sans cursor-pointer",
       props.className
     )}
   />

@@ -5,7 +5,7 @@ export const Header = () => {
 
   return (
     <>
-      <></>
+      <header className="flex p-10"></header>
     </>
   );
 };
