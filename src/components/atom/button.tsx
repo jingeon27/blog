@@ -1,7 +1,8 @@
 import clsx from "clsx";
-import { ComponentProps, PropsWithChildren } from "react";
 
-export const Button = (props: PropsWithChildren<ComponentProps<"button">>) => (
+export const Button = (
+  props: React.PropsWithChildren<React.ComponentProps<"button">>
+) => (
   <button
     {...props}
     className={clsx(
