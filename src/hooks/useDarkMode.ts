@@ -1,4 +1,4 @@
-import { useLayoutEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { useMainValue } from "./useMainContext";
 export const useIsDarkMode = ({
   light,
@@ -7,21 +7,21 @@ export const useIsDarkMode = ({
   light: string;
   dark: string;
 }) => {
-  const osMode = useMemo(
-    () => window.matchMedia("(prefers-color-scheme: dark)").matches,
-    []
-  );
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(osMode);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   const { colorMode } = useMainValue();
 
-  useLayoutEffect(() => {
-    if (colorMode === "Dark" || (colorMode === "System" && osMode)) {
+  useEffect(() => {
+    if (
+      colorMode === "Dark" ||
+      (colorMode === "System" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
       setIsDarkMode(true);
     } else {
       setIsDarkMode(false);
     }
-  }, [colorMode, osMode]);
+  }, [colorMode]);
 
   return isDarkMode ? dark : light;
 };

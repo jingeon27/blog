@@ -1,10 +1,8 @@
-"use client";
 import { useLayoutEffect } from "react";
 import { useMainAction, useMainValue } from "./useMainContext";
 import { LightIcon } from "@/assets/vectors/light-icon";
 import { DarkIcon } from "@/assets/vectors/dark-icon";
 import { OsIcon } from "@/assets/vectors/os-icon";
-import clsx from "clsx";
 
 export const useHeader = () => {
   const { sideBar, colorMode } = useMainValue();
@@ -38,17 +36,7 @@ export const useHeader = () => {
       children: (
         <>
           <Icon selected={colorMode === item} />
-          <span
-            className={clsx(
-              "text-blue-800 dark:text-blue-600q",
-              item === colorMode
-                ? "text-blue-800 dark:text-blue-600"
-                : "text-slate-600 dark:text-slate-300"
-            )}
-            key={item}
-          >
-            {item}
-          </span>
+          {item}
         </>
       ),
       onClick: () => {
@@ -57,6 +45,7 @@ export const useHeader = () => {
           colorMode: item,
         });
       },
+      selected: colorMode === item,
       key: item,
     };
   });

@@ -13,7 +13,7 @@ export const Header = () => {
   const { colorMode } = useMainValue();
   return (
     <>
-      <header className="flex p-5 lg:p-10">
+      <header className="flex justify-between p-5 lg:p-10">
         <SideBarIcon className="w-[36px] h-[24px]" onClick={showSideBar} />
         <Select menu={colorModeMenu}>
           <LightIcon selected={colorMode === "Light"} className="dark:hidden" />

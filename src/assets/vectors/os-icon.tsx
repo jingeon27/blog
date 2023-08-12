@@ -1,4 +1,3 @@
-"use client";
 import { useIsDarkMode } from "@/hooks/useDarkMode";
 import { ColorModeIconHooksParams, ColorModeIconProps } from "@/lib/utill";
 import clsx from "clsx";
