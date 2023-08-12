@@ -1,10 +1,10 @@
-import React from "react";
+import { createContext, useContext } from "react";
 
 export const initialState: {
-  colorMode: "dark" | "light" | "os";
+  colorMode: "Dark" | "Light" | "System";
   sideBar: boolean;
 } = {
-  colorMode: "os",
+  colorMode: "System",
   sideBar: false,
 };
 
@@ -25,12 +25,10 @@ export const reducer = (state: typeof initialState, action: Action) => {
   }
 };
 
-export const ValueContext = React.createContext(initialState);
-export const ActionContext = React.createContext<React.Dispatch<Action>>(
-  () => null
-);
+export const ValueContext = createContext(initialState);
+export const ActionContext = createContext<React.Dispatch<Action>>(() => null);
 export const useMainAction = () => {
-  const action = React.useContext(ActionContext);
+  const action = useContext(ActionContext);
   if (action === undefined) {
     throw new Error("mainAction error");
   }
@@ -38,7 +36,7 @@ export const useMainAction = () => {
 };
 
 export const useMainValue = () => {
-  const value = React.useContext(ValueContext);
+  const value = useContext(ValueContext);
   if (value === undefined) {
     throw new Error("mainAction error");
   }

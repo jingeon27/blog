@@ -1,18 +1,16 @@
 "use client";
-
-import { useMainValue } from "@/hooks/useMainContext";
+import { useIsDarkMode } from "@/hooks/useDarkMode";
 import clsx from "clsx";
-import { useLayoutEffect, useState } from "react";
 
 export const SideBarIcon = (props: React.ComponentProps<"svg">) => {
-  const { fill } = useIsDarkMode();
+  const fill = useIsDarkMode({ light: "#1f2937", dark: "#e5e7eb" });
   return (
     <svg
       {...props}
       viewBox="0 0 36 24"
       xmlns="http://www.w3.org/2000/svg"
       className={clsx(
-        "w-9 h-6 cursor-pointer hover:brightness-75",
+        "w-9 h-6 cursor-pointer hover:brightness-125 dark:hover:brightness-75",
         props.className
       )}
       fill="none"
@@ -25,29 +23,4 @@ export const SideBarIcon = (props: React.ComponentProps<"svg">) => {
       />
     </svg>
   );
-};
-
-// tailwind fill이 오락가락해서 customhook으로 처리
-const useIsDarkMode = () => {
-  const [isDarkMode, setIsDarkMode] = useState(
-    () =>
-      typeof window !== undefined &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-  );
-
-  const { colorMode } = useMainValue();
-
-  useLayoutEffect(() => {
-    if (
-      colorMode === "dark" ||
-      (colorMode === "os" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      setIsDarkMode(true);
-    } else {
-      setIsDarkMode(false);
-    }
-  }, [colorMode]);
-
-  return { fill: isDarkMode ? "#e5e7eb" : "#1f2937" };
 };

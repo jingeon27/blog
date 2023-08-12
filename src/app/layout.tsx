@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { pretendard } from "@/assets/font";
 import { Header } from "@/components/client/header";
 import { MainProvider } from "@/lib/provider";
+import clsx from "clsx";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "blog",
@@ -17,9 +19,16 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <MainProvider>
-        <body className={pretendard.className}>
-          <Header />
-          {children}
+        <body
+          className={clsx(
+            "bg-white text-black dark:text-white dark:bg-black",
+            pretendard.className
+          )}
+        >
+          <Suspense>
+            <Header />
+            {children}
+          </Suspense>
         </body>
       </MainProvider>
     </html>
