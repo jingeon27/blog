@@ -1,9 +1,5 @@
-import { SideBarIcon } from "@/assets/vectors/sidebar-icon";
+import clsx from "clsx";
 
 export default function Home() {
-  return (
-    <main>
-      <SideBarIcon />
-    </main>
-  );
+  return <main></main>;
 }

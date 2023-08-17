@@ -2,21 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground: #000;
-  --background: #fff;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground: #fff;
-    --background: #000;
-    --font-pretendard: "Pretendard", sans-serif;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
   box-sizing: border-box;
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
 }
