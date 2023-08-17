@@ -30,7 +30,7 @@ export const Select = ({ menu, ...props }: SelectProps) => {
               <Li
                 {...e}
                 className={clsx(
-                  "list-none gap-[5px] bg-slate-300 dark:bg-slate-600 flex first-of-type:rounded-t-[5px] last-of-type:rounded-b-[5px] p-[5px] cursor-pointer hover:brightness-75",
+                  "list-none gap-[5px] bg-slate-300 dark:bg-slate-600 flex first-of-type:rounded-t-[5px] last-of-type:rounded-b-[5px] py-2 px-[10px] cursor-pointer hover:brightness-75",
                   e.selected
                     ? "text-blue-800 dark:text-blue-600"
                     : "text-slate-600 dark:text-slate-300"

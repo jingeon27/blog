@@ -1,8 +1,8 @@
 import { useLayoutEffect } from "react";
 import { useMainAction, useMainValue } from "./useMainContext";
-import { LightIcon } from "@/assets/vectors/light-icon";
-import { DarkIcon } from "@/assets/vectors/dark-icon";
-import { OsIcon } from "@/assets/vectors/os-icon";
+import { LightIcon as Light } from "@/assets/vectors/light-icon";
+import { DarkIcon as Dark } from "@/assets/vectors/dark-icon";
+import { OsIcon as System } from "@/assets/vectors/os-icon";
 
 export const useHeader = () => {
   const { sideBar, colorMode } = useMainValue();
@@ -25,9 +25,9 @@ export const useHeader = () => {
       : reducer({ type: "SIDE_BAR", sideBar: true });
   };
   const ColorModeIcon = {
-    System: OsIcon,
-    Light: LightIcon,
-    Dark: DarkIcon,
+    System,
+    Light,
+    Dark,
   };
   const arr: ["Dark", "Light", "System"] = ["Dark", "Light", "System"];
   const colorModeMenu = arr.map((item) => {

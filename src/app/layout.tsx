@@ -5,6 +5,7 @@ import { Header } from "@/components/client/header";
 import { MainProvider } from "@/lib/provider";
 import clsx from "clsx";
 import { Suspense } from "react";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "blog",
@@ -18,6 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
+      <Script></Script>
       <MainProvider>
         <body
           className={clsx(
